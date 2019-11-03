@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setlist</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="json_practice.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="json_display">
+        <button id="change_to_pretty">Click me to prettify display</button>
+        <div id="json"></div>
+    </div>
+    <div id="pretty_display">
+        <button id="change_to_JSON">Click me to display JSON</button>
+        <form>
+            <select>
+                <option value="default">Select a genre</option>
+                <option value="jpop">J-POP</option>
+                <option value="kpop">K-POP</option>
+                <option value="alternative">Alternative</option>
+                <option value="raprock">Rap rock</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="tropical">Tropical house</option>
+                <option value="r&b">R&B</option>
+                <option value="musical">Musical</option>
+                <option value="trap">Trap</option>
+                <option value="rap">Rap</option>
+                <option value="soul">Soul</option>
+            </select>
+        </form>
+        <script type="text/javascript">
+            $('select').change(function() {
+                var $selected_genre = $(this).find('option:selected').text();
+                display_all_songs($selected_genre);
+            });
+            $('#change_to_JSON').click(function() {
+                display_json();
+            })
+            $('#change_to_pretty').click(function() {
+                display_all_songs("all");
+            })
+        </script>
+        <div id="setlist"></div>
+    </div>
+
+</body>
+</html>
